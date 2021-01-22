@@ -312,10 +312,13 @@ contains
           l2x(index_l2x_Fall_methane,i) = -lnd2atm_inst%ch4_surf_flux_tot_grc(g)
        endif
 
+       ! liquid canopy throughfall from land to MOSART
+       l2x(index_l2x_Flrl_liqgrnd,i) = waterlnd2atmbulk_inst%qflx_liq_grnd_col(g)
+       
        ! sign convention is positive downward with 
        ! hierarchy of atm/glc/lnd/rof/ice/ocn.  
        ! I.e. water sent from land to rof is positive
-
+       
        l2x(index_l2x_Flrl_rofsur,i) = waterlnd2atmbulk_inst%qflx_rofliq_qsur_grc(g)
 
        !  subsurface runoff is the sum of qflx_drain and qflx_perched_drain
